@@ -26,8 +26,8 @@ class MiningManager {
     constructor(plugin: Plugin, config : Config) {
         this.plugin = plugin
         this.config = config
-        emptyHand = MiningTool(this, 1, 0, 0, EmptyValue.Companion.ITEMSTACK)
-        val stickItem = TextComponentWrapper.Companion.createTextedItem(ItemStack(Material.STICK, 1), "§6§lGod Stick", "§d§oFor testing purposes only)")
+        emptyHand = MiningTool(this, 1, 0, 0, EmptyValue.ITEMSTACK)
+        val stickItem = TextComponentWrapper.createTextedItem(ItemStack(Material.STICK, 1), "§6§lGod Stick", "§d§oFor testing purposes only)")
 
         testStick = MiningTool(this, 25000000, 500, 10, stickItem)
 
@@ -52,7 +52,7 @@ class MiningManager {
     }
 
     fun registerPlayer(miningPlayer: MiningPlayer) {
-        players.add(miningPlayer);
+        players.add(miningPlayer)
     }
 
 
