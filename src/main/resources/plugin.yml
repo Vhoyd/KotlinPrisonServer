@@ -1,0 +1,5 @@
+name: PrisonServerKT
+version: ${version}
+main: dev.vhoyd.prisonServerKT.PrisonServerKT
+api-version: '1.21'
+depend: [ProtocolLib]
