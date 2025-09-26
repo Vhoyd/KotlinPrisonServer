@@ -82,7 +82,7 @@ class PrisonBlockDataLoader : BlockDataLoader {
 
         val stoneAction = BlockBreakAction { tile : BlockInstance, player : MiningPlayer ->
             BlockBreakSound(Sound.ENTITY_BLAZE_HURT, 1f, 0.5f).run(tile, player)
-            val skeleton = tile.location.world.spawn(tile.location.clone().add(0.5, 0.0, 0.5), WitherSkeleton::class.java)
+            tile.location.world.spawn(tile.location.clone().add(0.5, 0.0, 0.5), WitherSkeleton::class.java)
         }
         
         val stoneDrop = ConditionalDrop(
@@ -110,6 +110,6 @@ class PrisonBlockDataLoader : BlockDataLoader {
             Material.REINFORCED_DEEPSLATE
         )
 
-        return listOf(bedrock, grass, barrier, stone)
+        return listOf(bedrock, grass, barrier, stone, reinForcedDeepslate)
     }
 }
