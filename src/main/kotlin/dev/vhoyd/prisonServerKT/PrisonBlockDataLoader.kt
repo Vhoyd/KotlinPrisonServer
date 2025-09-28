@@ -1,14 +1,14 @@
 package dev.vhoyd.prisonServerKT
 
-import mininglib.block.BlockDataLoader
-import mininglib.block.BlockBreakAction
-import mininglib.block.BlockBreakSound
-import mininglib.block.BlockInstance
-import mininglib.loot.ConditionalDrop
-import mininglib.block.BlockDefinition
-import mininglib.mining.MiningPlayer
-import mininglib.loot.WeightedEntryPool
-import mininglib.loot.WeightedEntryUtil
+import dev.vhoyd.blockworks.block.BlockBreakAction
+import dev.vhoyd.blockworks.block.BlockBreakSound
+import dev.vhoyd.blockworks.block.BlockDataLoader
+import dev.vhoyd.blockworks.block.BlockDefinition
+import dev.vhoyd.blockworks.block.BlockInstance
+import dev.vhoyd.blockworks.loot.ConditionalDrop
+import dev.vhoyd.blockworks.loot.WeightedEntryPool
+import dev.vhoyd.blockworks.loot.WeightedEntryUtil
+import dev.vhoyd.blockworks.mining.MiningPlayer
 import org.bukkit.Material
 import org.bukkit.Particle
 import org.bukkit.Sound
@@ -54,7 +54,7 @@ class PrisonBlockDataLoader : BlockDataLoader {
             Material.AIR
         )
 
-        val barrierAction = BlockBreakAction { tile : BlockInstance, player : MiningPlayer ->
+        val barrierAction = BlockBreakAction { tile: BlockInstance, player: MiningPlayer ->
             val s = BlockBreakSound(Sound.BLOCK_AMETHYST_BLOCK_BREAK, 1f, 1.2f)
             s.run(tile, player)
             tile.location.world
@@ -84,7 +84,7 @@ class PrisonBlockDataLoader : BlockDataLoader {
             BlockBreakSound(Sound.ENTITY_BLAZE_HURT, 1f, 0.5f).run(tile, player)
             tile.location.world.spawn(tile.location.clone().add(0.5, 0.0, 0.5), WitherSkeleton::class.java)
         }
-        
+
         val stoneDrop = ConditionalDrop(
             expYield = WeightedEntryUtil.single(5),
             drops = WeightedEntryUtil.single(ItemStack(Material.AIR, 1), 0),

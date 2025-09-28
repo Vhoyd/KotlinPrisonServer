@@ -1,7 +1,8 @@
 package dev.vhoyd.prisonServerKT
 
-import mininglib.core.Config
-import mininglib.core.MiningManager
+import dev.vhoyd.blockworks.core.Blockworks
+import dev.vhoyd.blockworks.core.Config
+
 import org.bukkit.plugin.java.JavaPlugin
 
 class PrisonServerKT : JavaPlugin() {
@@ -16,7 +17,7 @@ class PrisonServerKT : JavaPlugin() {
         val config = Config(PrisonBlockDataLoader(),
             miningRateScale = 2.0
         )
-        val manager = MiningManager(this, config)
+        val manager = Blockworks(this, config)
     }
 
     override fun onDisable() {
